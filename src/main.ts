@@ -7,13 +7,22 @@ const app = createApp(App)
 app.use(router)
 app.use(store)
 app.mount('#app')
-xyRequest.request({
-  method: 'GET',
-  url: '/get',
-  interceptors: {
-    requestInterceptors(config) {
-      console.log('单独请求的interceptors')
-      return config
+interface IData {
+  args: any
+  headers: Headers
+  origin: string
+  url: string
+}
+xyRequest
+  .get<IData>({
+    url: '/get',
+    interceptors: {
+      requestInterceptors(config) {
+        console.log('单独请求的interceptors')
+        return config
+      }
     }
-  }
-})
+  })
+  .then((res) => {
+    console.log(res)
+  })
