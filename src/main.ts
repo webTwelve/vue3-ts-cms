@@ -2,27 +2,12 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from '@/router/index'
 import store from '@/store/index'
-import xyRequest from './service'
+import 'normalize.css'
+import './assets/style/index.less'
+import globalElement from './global/register-element'
 const app = createApp(App)
+
+app.use(globalElement)
 app.use(router)
 app.use(store)
 app.mount('#app')
-interface IData {
-  args: any
-  headers: Headers
-  origin: string
-  url: string
-}
-xyRequest
-  .get<IData>({
-    url: '/get',
-    interceptors: {
-      requestInterceptors(config) {
-        console.log('单独请求的interceptors')
-        return config
-      }
-    }
-  })
-  .then((res) => {
-    console.log(res)
-  })
