@@ -2,14 +2,10 @@
   <div class="account-box">
     <el-form class="login-form" :rules="account_rules" :model="account">
       <el-form-item label="账号" prop="name">
-        <el-input style="width: 138px" v-model="account.name" />
+        <el-input v-model="account.name" />
       </el-form-item>
       <el-form-item label="密码" prop="password" type="password">
-        <el-input
-          style="width: 138px"
-          v-model="account.password"
-          type="password"
-        />
+        <el-input v-model="account.password" type="password" />
       </el-form-item>
     </el-form>
   </div>
@@ -24,4 +20,8 @@ const account = reactive({
 })
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.login-form {
+  width: 300px;
+}
+</style>

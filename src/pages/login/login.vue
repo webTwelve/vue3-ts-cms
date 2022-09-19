@@ -20,6 +20,15 @@
         </template>
         <LoginPhone />
       </el-tab-pane>
+      <el-tab-pane>
+        <template #label>
+          <span class="custom-tabs-label">
+            <el-icon style="margin-right: 8px"><calendar /></el-icon>
+            <span>微信登录</span>
+          </span>
+        </template>
+        微信登录
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
