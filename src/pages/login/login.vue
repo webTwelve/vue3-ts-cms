@@ -44,12 +44,10 @@
 import LoginAccount from './components/login-account.vue'
 import LoginPhone from './components/login-phone.vue'
 import { ref } from 'vue'
-import useCommonStore from '@/store/common'
 let isKeepPassword = ref(false)
 const accountRef = ref<InstanceType<typeof LoginAccount>>()
 const phoneRef = ref<InstanceType<typeof LoginPhone>>()
 const loginType = ref('account')
-const commonStore = useCommonStore()
 const handleLoginClick = () => {
   if (loginType.value == 'account') {
     accountRef.value?.LoginAccount()
