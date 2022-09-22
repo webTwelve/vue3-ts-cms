@@ -15,11 +15,17 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
+import { reactive, defineExpose } from 'vue'
 import { phone_rules } from '../config/login-config'
 const account = reactive({
   tel: '',
   code: ''
+})
+const LoginPhone = () => {
+  console.log('手机号登录')
+}
+defineExpose({
+  LoginPhone
 })
 </script>
 

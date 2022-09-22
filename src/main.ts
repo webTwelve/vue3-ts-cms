@@ -6,7 +6,6 @@ import 'normalize.css'
 import './assets/style/index.less'
 import globalElement from './global/register-element'
 const app = createApp(App)
-
 app.use(globalElement)
 app.use(router)
 app.use(store)
