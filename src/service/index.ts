@@ -1,12 +1,12 @@
 import request from './request'
 import { baseURL } from './request/config'
-import cache from '@/utils/cache'
+import localCache from '@/utils/cache'
 const xyRequest = new request({
   baseURL,
   timeout: 10000,
   interceptors: {
     requestInterceptor(config) {
-      const token = cache.getCache('token') ?? ''
+      const token = localCache.getCache('token') ?? ''
       if (token) {
         config.headers = {
           Authorization: `Bearer ${token}`
