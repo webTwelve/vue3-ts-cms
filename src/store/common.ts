@@ -16,6 +16,13 @@ const useCommonStore = defineStore('login', {
       userRole: {}
     }
   },
+  //开启持久化
+  persist: {
+    enabled: true,
+    strategies: [
+      { storage: localStorage, paths: ['token', 'userInfo', 'userRole'] }
+    ]
+  },
   actions: {
     async accountLoginAction(account: IAccount) {
       // 获取TOKEN
@@ -26,11 +33,9 @@ const useCommonStore = defineStore('login', {
       // 获取用户信息
       const userInfoRes = await userInfoRequest(res.data.id)
       this.userInfo = userInfoRes.data
-      cache.setCache('userInfo', userInfoRes.data)
       // 获取用户菜单
       const userRoleRes = await userRoleRequest(res.data.id)
       this.userRole = userRoleRes.data
-      cache.setCache('userRole', userRoleRes.data)
       router.push('/main')
     }
   }

@@ -6,7 +6,7 @@ const xyRequest = new request({
   timeout: 10000,
   interceptors: {
     requestInterceptor(config) {
-      const token = cache.getCache('token') ?? ''
+      const token = cache.getCache('login').token ?? ''
       if (token) {
         config.headers = {
           Authorization: `Bearer ${token}`
