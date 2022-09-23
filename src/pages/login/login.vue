@@ -65,7 +65,7 @@ const handleLoginClick = () => {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 200px;
+  padding-top: 14vh;
   box-sizing: border-box;
   .login-title {
     font-size: 40px;
