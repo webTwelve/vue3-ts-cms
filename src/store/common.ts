@@ -4,11 +4,11 @@ import {
   userInfoRequest,
   userRoleRequest
 } from '@/service/login/index'
-import { IAccount } from '@/service/login/type'
+import type { IAccount } from '@/service/login/type'
 import localCache from '@/utils/cache'
 import router from '@/router'
 const useCommonStore = defineStore('login', {
-  state: () => {
+  state: (): any => {
     return {
       token: '',
       id: 0,

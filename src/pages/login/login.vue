@@ -60,7 +60,7 @@ const handleLoginClick = () => {
 <style lang="less" scoped>
 .login {
   height: 100%;
-  background: url('@/assets/banner.webp');
+  background: url('@/assets/images/banner.webp');
   background-size: 100% 100%;
   display: flex;
   align-items: center;

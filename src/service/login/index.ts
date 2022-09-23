@@ -4,7 +4,7 @@ import {
   IAccountData,
   RootObject,
   IUserInfoRes,
-  IUserRole
+  IUserRoleRes
 } from './type'
 enum Elogin {
   accountLogin = '/login',
@@ -19,13 +19,11 @@ export const accountLoginRequest = (account: IAccount) => {
 }
 export const userInfoRequest = (id: number) => {
   return xyRequest.get<RootObject<IUserInfoRes>>({
-    url: Elogin.userInfo + id,
-    isShowLoading: false
+    url: Elogin.userInfo + id
   })
 }
 export const userRoleRequest = (id: number) => {
-  return xyRequest.get<RootObject<IUserRole>>({
-    url: Elogin.userRole + id + '/menu',
-    isShowLoading: false
+  return xyRequest.get<RootObject<IUserRoleRes>>({
+    url: Elogin.userRole + id + '/menu'
   })
 }

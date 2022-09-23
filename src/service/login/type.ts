@@ -40,7 +40,7 @@ export interface Role {
   updateAt: Date
 }
 
-export interface IUserRole {
+export interface IUserRoleRes {
   id: number
   name: string
   type: number

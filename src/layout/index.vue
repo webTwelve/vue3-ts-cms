@@ -1,9 +1,13 @@
 <template>
   <div class="layout">
     <el-container class="layout-content">
-      <el-aside width="200px">Aside</el-aside>
+      <el-aside :width="isCollapse ? '60px' : '200px'">
+        <Menu :isCollapse="isCollapse" />
+      </el-aside>
       <el-container class="page">
-        <el-header class="page-header">Header</el-header>
+        <el-header class="page-header">
+          <Header @foldChange="foldChange" />
+        </el-header>
         <el-main class="page-content">Main</el-main>
       </el-container>
     </el-container>
@@ -11,9 +15,13 @@
 </template>
 
 <script lang="ts" setup>
-import useCommonStore from '@/store/common'
-const commonStore = useCommonStore()
-console.log(commonStore)
+import Menu from './menu/menu.vue'
+import Header from './header/header.vue'
+import { ref } from 'vue'
+const isCollapse = ref(false)
+const foldChange = (isFold: boolean) => {
+  isCollapse.value = isFold
+}
 </script>
 
 <style lang="less" scoped>
