@@ -45,7 +45,7 @@ export interface IUserRoleRes {
   name: string
   type: number
   url: string
-  icon: string
+  icon?: string
   sort: number
   children: Child[]
 }

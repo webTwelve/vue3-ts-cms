@@ -39,7 +39,10 @@
                 </el-sub-menu>
               </template> -->
               <!-- <template v-else> -->
-              <el-menu-item :index="subitem.id + ''">
+              <el-menu-item
+                :index="subitem.id + ''"
+                @click="handleMenuClick(subitem)"
+              >
                 <span>{{ subitem.name }}</span>
               </el-menu-item>
             </template>
@@ -47,7 +50,7 @@
           </el-sub-menu>
         </template>
         <template v-if="item.type === 2">
-          <el-menu-item :index="item.id + ''">
+          <el-menu-item :index="item.id + ''" @click="handleMenuClick(item)">
             <el-icon><DataAnalysis /></el-icon>
             <span>{{ item.name }}</span>
           </el-menu-item>
@@ -58,6 +61,7 @@
 </template>
 
 <script lang="ts" setup>
+import router from '@/router'
 import useCommonStore from '@/store/common'
 import { defineProps, withDefaults } from 'vue'
 const commonStore = useCommonStore()
@@ -65,6 +69,9 @@ interface IProps {
   isCollapse: boolean
 }
 withDefaults(defineProps<IProps>(), { isCollapse: false })
+const handleMenuClick = (item: any) => {
+  router.push(item.url)
+}
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }

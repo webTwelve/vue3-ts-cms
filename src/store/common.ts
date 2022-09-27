@@ -4,6 +4,7 @@ import {
   userInfoRequest,
   userRoleRequest
 } from '@/service/login/index'
+import { mapMenusToRoutes } from '@/utils/map-menus'
 import type { IAccount } from '@/service/login/type'
 import localCache from '@/utils/cache'
 import router from '@/router'
@@ -39,7 +40,20 @@ const useCommonStore = defineStore('login', {
       this.userRole = userRoleRes.data
       localCache.setCache('userRole', userRoleRes.data)
       router.push('/main')
+      const routes = mapMenusToRoutes(this.userRole)
+      routes.forEach((item) => router.addRoute('main', item))
+    },
+    async loadLocalLogin() {
+      // 获取用户菜单
+      const userRoleRes = await userRoleRequest(this.userInfo.id)
+      this.userRole = userRoleRes.data
+      router.push('/main')
+      const routes = mapMenusToRoutes(this.userRole)
+      routes.forEach((item) => router.addRoute('main', item))
     }
   }
 })
+export function setupStore() {
+  useCommonStore().loadLocalLogin()
+}
 export default useCommonStore
