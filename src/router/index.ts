@@ -33,10 +33,6 @@ router.beforeEach((to) => {
     if (!token) {
       return '/login'
     }
-  } else {
-    if (token) {
-      return '/main'
-    }
   }
 })
 export default router

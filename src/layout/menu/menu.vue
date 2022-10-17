@@ -73,7 +73,7 @@ const handleMenuClick = (item: any) => {
   router.push(item.url)
 }
 const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+  console.log(key, keyPath, 1)
 }
 const handleClose = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
